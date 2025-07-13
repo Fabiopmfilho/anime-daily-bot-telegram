@@ -89,7 +89,6 @@ async function getAnimesByDay(day: string): Promise<string[]> {
   }
 }
 
-// Envia animes automaticamente todos os dias às 10h
 cron.schedule("0 10 * * *", async () => {
   if (!chatId) return;
   const animes = await getTodayAnimes();
