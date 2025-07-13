@@ -26,16 +26,6 @@ BOT_TOKEN=seu_token_aqui
 Inicie o bot:
 
 ```bash
-npm start
-```
-
-### 📤 Hospedagem
-
-Você pode rodar localmente ou hospedar no Replit, Render ou Railway.
-
-### Exemplo para rodar localmente:
-
-```bash
 npm run dev
 ```
 

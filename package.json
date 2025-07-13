@@ -8,7 +8,7 @@
     "dev": "npx ts-node index.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fabiopmfilho",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
