@@ -78,12 +78,21 @@ async function getAnimesByDay(day: string): Promise<string[]> {
       `https://api.jikan.moe/v4/schedules?filter=${day}&kids=false&sfw=false&limit=35`
     );
 
+    if (!data?.data || data.data.length === 0) {
+      return [];
+    }
+
     const uniqueAnimes = Array.from(
       new Map(data.data.map((anime: any) => [anime.url, anime])).values()
     );
 
     return uniqueAnimes.map((anime: any) => `${anime.title} - ${anime.url}`);
   } catch (error: any) {
+    if (error.response?.status === 404) {
+      console.warn(`Não há dados disponíveis para ${day}.`);
+      throw new Error(`Não há dados disponíveis para ${day}.`);
+    }
+
     console.error(`Erro ao buscar animes de ${day}:`, error.message);
     return [];
   }
